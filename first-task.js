@@ -1,10 +1,12 @@
-let Validol=15.678;
+let Validol=15.678; //Створіть 3 змінних з наступними значеннями
 let Durex=123.965;
 let Barboval=90.2345;
-let maximus=Math.max(Validol, Durex, Barboval);
-let minimum=Math.min(Validol, Durex, Barboval);
+
+let maximus=Math.max(Validol, Durex, Barboval); //Використовуючи вбудований об'єкт Math – виведіть максимальне число
+let minimum=Math.min(Validol, Durex, Barboval); //Використовуючи вбудований об'єкт Math – виведіть мінімальне число
 let suma= Validol + Durex + Barboval;
 console.log(suma);
+
 Math.floor(Validol);
 Math.floor(Durex);
 Math.floor(Barboval);
