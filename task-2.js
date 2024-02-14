@@ -1,14 +1,16 @@
  let N = prompt("Введіть число:", " ");
  let NumN=Number(N);
+ let fitN;
+ let fitM;
  if (Number.isInteger(NumN)) {
-    let fitN=NumN;
+    fitN=NumN;
   } else {
     alert("Введіть число!");
   }
  let M = prompt("Введіть друге число:", " ");
  let NumM=Number(M);
  if (Number.isInteger(NumM)) {
-    let fitM=NumM;
+    fitM=NumM;
   } else {
 alert("Введіть число!");
   }
@@ -20,15 +22,13 @@ alert("Введіть число!");
          suma=suma+fitN;
       } 
       suma;
-   } else(Bulli) {
+   } else(Bulli)
       for (;fitN<=fitM;fitN++) {
-         if(N%2==0)continue;
-         console.log(fitN);
+         if(fitN%2==0)continue;
          suma=suma+fitN;
-   
       }
-       suma
-   }
+      suma
+   
   
 
   
