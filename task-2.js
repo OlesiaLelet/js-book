@@ -17,6 +17,7 @@ alert("Введіть число!");
   const Bulli = confirm(`Чи потрібно пропускати парні числа? Натисніть "Ok", якщо true або "скасувати", якщо false`);
   
    let suma=0;
+
    if(!Bulli){
       for (;fitN<=fitM;fitN++) {
          suma=suma+fitN;
@@ -28,6 +29,22 @@ alert("Введіть число!");
          suma=suma+fitN;
       }
       suma
+   
+   // if(!Bulli){
+   //       while(fitN<=fitM){
+   //          suma=suma+fitN;
+   //          fitN++;
+   //       }
+   // }  else(Bulli){
+   //    while(fitN<=fitM) {
+   //       if (fitN%2==0) continue;
+   //       suma=suma+fitN;
+   //    }
+   // };
+   // console.log(suma);
+
+
+   
    
   
 
