@@ -1,4 +1,4 @@
- let N = prompt("Введіть число:", " ");
+let N = prompt("Введіть число:", " ");
  let NumN=Number(N);
  let fitN;
  let fitM;
@@ -26,12 +26,14 @@ alert("Введіть число!");
       suma;
    } else(Bulli)
       while (fitN<=fitM) {
-         if(fitN%2==0)continue;
+         if(fitN%2==0){
+         fitN++;
+         continue;
+         }
          suma=suma+fitN;
          fitN++;
       }
-      suma
-   
+      console.log(suma);
    // if(!Bulli){
    //       while(fitN<=fitM){
    //          suma=suma+fitN;
