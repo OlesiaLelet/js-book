@@ -25,28 +25,14 @@ function getMaxDigit(number) {
 
 
 //2. Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл
-function knowStepOfNumber (number, raisingOfto) {
-         let stepOfNumber=0;
-         for (let i=0; i<number; i++) {
-                if (raisingOfto/number>number) {
-                stepOfNumber+=1;
-                }
-         };
-         return stepOfNumber
-         //або 
-         function knowStepOfNumber (number, raisingOfto) {
-            let stepOfNumber=0;
-            let changeNumber; 
-             for (let i=0; i < ; i++) {
-                 changeNumber=number*number;
-                    if (changeNumber<raisingOfto) {
-                    stepOfNumber+=1;
-                    }
-             };
-             return stepOfNumber;
-    }
-    knowStepOfNumber (3, 243);
-}
+function getStepOfNumber (number, stepOfNumber) {
+    let raisingOfto=1;
+    for (let i=1; i<=stepOfNumber; i++) {
+       raisingOfto=raisingOfto*number;
+    };
+    return raisingOfto;
+};
+getStepOfNumber (9, 3);
 
 //!3. Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" так далі)
 function FirstLetterIsBig (Name) {
@@ -133,31 +119,82 @@ countLetter("а", "Асталавста");
        };
     //    deleteLetters("a", "abahamalaha");
 
-    //12. Створіть функцію, яка видалить з речення букви, як зустрчаються більше 1 разу."
+ // 11. Створіть функцію, яка перевіряє, чи є слово паліндромом
+ function isPalyndrom (string) {
+    let reverseArr=[];
+    let result=true; 
+    let stringWithoutSpace;
+    if (string.includes(" ")) {
+        stringWithoutSpace=string.replaceAll(" ", ""); 
+    }
+     else {
+         stringWithoutSpace=string;
+     }
+      for (let i=0; i < stringWithoutSpace.length; i++) {
+         reverseArr.unshift(stringWithoutSpace[i]);
+        };  
+     const reverseWord=reverseArr.join("");
+     if (reverseWord===stringWithoutSpace) {
+         return result;
+     }
+     else {
+         return !result;
+     }
+ }
+isPalyndrom ("я несу гусеня");
+
+    //12. Створіть функцію, яка видалить з речення букви, як зустрічаються більше 1 разу."
+
+ function deleteLetters (string="Бісквіт був дуже ніжним") {
+     let newString="";
+     let bigLetter="";
+    
+     for (let i=0; i< string.length; i++) {
+    
+  if (!newString.includes(string[i])&&!newString.includes(string[i].toUpperCase())&&!newString.includes(string[i].toLowerCase())){
+             newString+=string[i]; 
+        } 
+         else if (newString.includes(string[i])) {
+             newString=newString.replaceAll(string[i], "");
+         }
+     }
+     return newString;
+    }
+ deleteLetters ();
+
+
+
+// function deleteLetters(string = "Бісквіт був дуже ніжним") {
+//     let charCount = {};
+//     let newString = "";
+
+//     // Рахуємо кількість кожного символу у рядку
+//     for (let char of string) {
+//         char = char.toLowerCase(); // Нормалізуємо до нижнього регістру
+//         charCount[char] = (charCount[char] || 0) + 1;
+//     }
+
+//     // Створюємо новий рядок, пропускаючи символи, які зустрічаються тільки один раз
+//     for (let char of string) {
+//         if (charCount[char.toLowerCase()] > 1) {
+//             newString += char;
+//             charCount[char.toLowerCase()] = 0; // Позначаємо, що символ був використаний
+//         }
+//     }
+
+//     return newString;
+// }
+
+
+
+
 
 function deleteLetters (string="Бісквіт був дуже ніжним") {
-        let newString=[];
-         for (let i=0; i< string.length; i++) {
-            newString+= string[i];
-            if (newString.includes(string[i]))
-            
-         }
+    const amountOfLetters= {};
+    let newString="";
+    for( let i=0; i<string.length; i++) {
+         
+    }
+}
 
-
-       
-         let newS=string.replaceAll(letter, "");
-         return newString;
-       };
-
-
-       const string="Бісквіт був дуже ніжним";
-let newString=;
-let newS;
-for (let i=0; i< string.length; i++) {
-            newString+= string[i];
-            if (newString.includes(string[i])) {
-            newS=newString.replaceAll(string[i], "");
-            }
-            
-         }
-newS;
+    

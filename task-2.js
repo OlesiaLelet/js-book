@@ -19,14 +19,16 @@ alert("Введіть число!");
    let suma=0;
 
    if(!Bulli){
-      for (;fitN<=fitM;fitN++) {
+      while (fitN<=fitM) {
          suma=suma+fitN;
+         fitN++;
       } 
       suma;
    } else(Bulli)
-      for (;fitN<=fitM;fitN++) {
+      while (fitN<=fitM) {
          if(fitN%2==0)continue;
          suma=suma+fitN;
+         fitN++;
       }
       suma
    
