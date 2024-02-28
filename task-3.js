@@ -150,7 +150,7 @@ isPalyndrom ("я несу гусеня");
      let bigLetter="";
     
      for (let i=0; i< string.length; i++) {
-    
+       string[i]= string[i].toLowerCase;
   if (!newString.includes(string[i])&&!newString.includes(string[i].toUpperCase())&&!newString.includes(string[i].toLowerCase())){
              newString+=string[i]; 
         } 
@@ -185,16 +185,18 @@ isPalyndrom ("я несу гусеня");
 //     return newString;
 // }
 
-
-
-
-
 function deleteLetters (string="Бісквіт був дуже ніжним") {
-    const amountOfLetters= {};
-    let newString="";
-    for( let i=0; i<string.length; i++) {
-         
+     let newString="";
+     let bigLetter="";
+    const lowerString = string.toLowerCase();
+     for (let i=0; i< string.length; i++) {
+  if (!newString.includes(lowerString[i])){
+  newString+=string[i]; 
+     } 
+          else if (newString.includes(lowerString[i])) {
+              newString=newString.replaceAll(lowerString[i], "");
+         }
+   }
+     return newString;
     }
-}
-
-    
+ deleteLetters ();
