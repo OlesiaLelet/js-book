@@ -6,74 +6,71 @@ const themes = ["Диференційне рівняння", "Теорія ав�
 const marks = [4, 5, 5, 3, 4, 5];
  
 // 1.Розділіть студентів на пари(хлопець + дівчина) для роботи над проектом.
-let divideOnPairs = function (Array=students) {
+let divideOnPairs = function (array) {
     const pairs=[];
     const female=[];
     const male=[];
-    for (let i=0; i < Array.length; i++) {
-           if (Array[i].at(-1)==="а") {
-              female.push(Array[i]);
+    for (let i=0; i < array.length; i++) {
+           if (array[i].at(-1)==="а") {
+              female.push(array[i]);
             }
             else {
-            male.push(Array[i]);
+            male.push(array[i]);
            }
     }
 
-        for (let i=0; i< female.length; i++) {
-            pairs.push([female[i], male[i]]);
-          }
+    for (let i=0; i< female.length; i++) {
+          pairs.push([female[i], male[i]]);
+         }
           return pairs;
     
 }
-//console.log(divideOnPairs());
-
+//console.log(divideOnPairs(students));
 
 // 2. Зіставте пари з попереднього завдання та теми проектів, над якими студенти будуть працювати.
-const Pairs=[...divideOnPairs()];
-//const Pairs=[['Олена', 'Олександр'],['Іра', 'Ігор'],['Світлана', 'Олексій']];
+const Pairs=[...divideOnPairs(students)];
 
-let getProjectforPairs= function (studentsPairsArray=Pairs) {
-      const projectForPairs=[];
-      for (let i=0; i< studentsPairsArray.length; i++) {
-        projectForPairs[i]=studentsPairsArray[i];
-        projectForPairs[i][0]=projectForPairs[i][0] + " " + projectForPairs[i][1];
-        projectForPairs[i].splice(1,1);
-        projectForPairs[i][1]=themes[i];
-      }
-    return projectForPairs;
+let getProjectforPairs= function (studentsPairsArray, themesForSt) {
+  const projectForPairs=[];
+  for (let i=0; i< studentsPairsArray.length; i++) {
+    projectForPairs[i]=[studentsPairsArray[i][0] + " " + studentsPairsArray[i][1], themesForSt[i]];
+  }
+return projectForPairs;
 }
 
-//console.log (getProjectforPairs());
+//console.log (getProjectforPairs(Pairs, themes));
 
 // 3.Зіставте оцінки(marks) зі студентом(students): [["Саша", 4], [...], [...]]
-let getMarksForStudent= function (ArrayOfStudents=students) {
+let getMarksForStudent= function (ArrayOfStudents, marks) {
 const ArrayOfStudentsWithMarks=[];
 for (let i=0; i< ArrayOfStudents.length; i++) {
-   ArrayOfStudentsWithMarks[i]=[students[i]];
-   ArrayOfStudentsWithMarks[i][1]=marks[i];
+   ArrayOfStudentsWithMarks[i]=[ArrayOfStudents[i], marks[i]];
 }
 return ArrayOfStudentsWithMarks;
 }
-//console.log(getMarksForStudent());
+//console.log(getMarksForStudent(students, marks));
 
 //4. Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт (тут функція буде не чистою, але не повинна мутувати массив): [["Олександр Олена", "Теорія автоматів", 5], [...], [...]]
-// const studentsWithProjects= [...getProjectforPairs()];
-// let randomMarksForProject= function(ArrayOfStudents=studentsWithProjects) {
-// for (let i=0; i< ArrayOfStudents.length; i++) {
-//   let randomMark=Math.floor(Math.random()*5);
-//   if (randomMark>0) {
-//   ArrayOfStudents[i][2]=randomMark;
-//   }
-// }
-// return ArrayOfStudents;
-//  }
-//console.log(randomMarksForProject);
+const studentsWithProjects= [...getProjectforPairs(Pairs, themes)];
+ 
+let randomMarksForProject= function(arrayOfStudents) {
+  const arrayWithRandomMarks=[];
+  function randomInt(min,max){
+    return Math.floor(Math.random() * (max - min) + min);
+    }
+ for (let i=0; i< arrayOfStudents.length; i++) {
+  arrayWithRandomMarks[i]=arrayOfStudents[i];
+  arrayWithRandomMarks[i][2]=randomInt(1,5); 
+ }
+ return arrayWithRandomMarks;
+  }
+// console.log(randomMarksForProject(studentsWithProjects));
 
 //5. Вивести початковий масив та результати виконання кожної функції в консоль.
 console.log(students);
 console.log(themes);
 console.log(marks);
-console.log(divideOnPairs());
-console.log(getProjectforPairs());
-console.log(getMarksForStudent());
-console.log(randomMarksForProject());
+console.log(divideOnPairs(students));
+console.log (getProjectforPairs(Pairs, themes));
+console.log(getMarksForStudent(students, marks));
+console.log(randomMarksForProject(studentsWithProjects));
