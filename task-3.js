@@ -24,7 +24,7 @@ function getMaxDigit(number) {
 
 
 
-//2. Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл
+//!2. Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл
 function getStepOfNumber (number, stepOfNumber) {
     let raisingOfto=1;
     for (let i=1; i<=stepOfNumber; i++) {
@@ -32,7 +32,7 @@ function getStepOfNumber (number, stepOfNumber) {
     };
     return raisingOfto;
 };
-getStepOfNumber (9, 3);
+//getStepOfNumber (9, 3);
 
 //!3. Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" так далі)
 function FirstLetterIsBig (Name) {
@@ -40,7 +40,7 @@ function FirstLetterIsBig (Name) {
     let correctWriting = lowerCase[0].toUpperCase() + lowerCase.slice(1);
      return correctWriting;
  };
-FirstLetterIsBig("LeSia");
+//FirstLetterIsBig("LeSia");
 
 //!4. Створити функцю, яка вираховує суму, що залишається псля оплати податку вд зарабтньої плати. (Податок = 18% + 1.5% -> 19.5%).
 function SalaryAfterTaxes (salary) {
@@ -48,14 +48,14 @@ function SalaryAfterTaxes (salary) {
    let salaryMinusTaxes = salary - taxes;
    return salaryMinusTaxes;
 };
-SalaryAfterTaxes(1000);
+//SalaryAfterTaxes(1000);
 
 //!5. Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M.
  function getRandomNumber (N, M) {
     let randomNumber=Math.floor(Math.random()*(M-N));
     return randomNumber;
  }
- getRandomNumber(5,85);
+// getRandomNumber(5,85);
 
 //!6. Створити функцію, яка рахує скільки разів певна буква повторюється в слові 
 function countLetter (letter, word) {
@@ -68,7 +68,7 @@ function countLetter (letter, word) {
     }
     return numberOfLetter;
 };
-countLetter("а", "Асталавста");
+//countLetter("а", "Асталавста");
 
 //!7. Створіть функцію, яка конвертує долари в гривн та навпаки в залежності від наявності символа $ або UAH в рядку.
 //!8.Врахуйте, інші валюти не конвертуються, потрібно виводитиbпомилку, також регістр uah не має значення.
@@ -97,7 +97,7 @@ countLetter("а", "Асталавста");
              }
             console.log (convertedCurrency);
         };
-        convertCurrency("1000UAH");
+       // convertCurrency("1000UAH");
 
      // !9. Створіть функцю генерацї випадкового паролю (тільки числа),довжина встановлюється користувачем 
      //або по замовчуванню = 8 символам.
@@ -119,7 +119,7 @@ countLetter("а", "Асталавста");
        };
     //    deleteLetters("a", "abahamalaha");
 
- // 11. Створіть функцію, яка перевіряє, чи є слово паліндромом
+ // !11. Створіть функцію, яка перевіряє, чи є слово паліндромом
  function isPalyndrom (string) {
     let reverseArr=[];
     let result=true; 
@@ -141,32 +141,34 @@ countLetter("а", "Асталавста");
          return !result;
      }
  }
-isPalyndrom ("я несу гусеня");
+//isPalyndrom ("я несу гусеня");
 
     //12. Створіть функцію, яка видалить з речення букви, як зустрічаються більше 1 разу."
 
- function deleteLetters (string="Бісквіт був дуже ніжним") {
-     let newString="";
-     let bigLetter="";
-    
-     for (let i=0; i< string.length; i++) {
-       string[i]= string[i].toLowerCase;
-  if (!newString.includes(string[i])&&!newString.includes(string[i].toUpperCase())&&!newString.includes(string[i].toLowerCase())){
-             newString+=string[i]; 
-        } 
-         else if (newString.includes(string[i])) {
-             newString=newString.replaceAll(string[i], "");
-         }
-     }
-     return newString;
+ function deleteLetters (_string) {
+    string= _string.toLowerCase().replaceAll(" ", "");
+    arrayOfNotness=[];
+    let strN="";
+    for(let i=0; i<string.length; i++) {
+        if (string.indexOf(string[i], i+1!==-1)) {
+            arrayOfNotness.push(string[i]);
+        }
     }
- deleteLetters ();
+    for(let i=0; i<string.length; i++) {
+        if (!arrayOfNotness.includes(string[i])) {
+            strN+=string[i];
+        }
+    }
+    return strN;
+    } 
+    console.log (deleteLetters ("Бісквіт був дуже ніжним"));
 
 
 
-// function deleteLetters(string = "Бісквіт був дуже ніжним") {
-//     let charCount = {};
-//     let newString = "";
+
+function deleteLetters(string = "Бісквіт був дуже ніжним") {
+let charCount = {};
+ let newString = "";
 
 //     // Рахуємо кількість кожного символу у рядку
 //     for (let char of string) {
@@ -184,19 +186,3 @@ isPalyndrom ("я несу гусеня");
 
 //     return newString;
 // }
-
-function deleteLetters (string="Бісквіт був дуже ніжним") {
-     let newString="";
-     let bigLetter="";
-    const lowerString = string.toLowerCase();
-     for (let i=0; i< string.length; i++) {
-  if (!newString.includes(lowerString[i])){
-  newString+=string[i]; 
-     } 
-          else if (newString.includes(lowerString[i])) {
-              newString=newString.replaceAll(lowerString[i], "");
-         }
-   }
-     return newString;
-    }
- deleteLetters ();

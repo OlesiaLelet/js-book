@@ -6,7 +6,7 @@ const themes = ["Диференційне рівняння", "Теорія ав�
 const marks = [4, 5, 5, 3, 4, 5];
  
 // 1.Розділіть студентів на пари(хлопець + дівчина) для роботи над проектом.
-let divideOnPairs = function (array) {
+const divideOnPairs = function (array) {
     const pairs=[];
     const female=[];
     const male=[];
@@ -30,7 +30,7 @@ let divideOnPairs = function (array) {
 // 2. Зіставте пари з попереднього завдання та теми проектів, над якими студенти будуть працювати.
 const Pairs=[...divideOnPairs(students)];
 
-let getProjectforPairs= function (studentsPairsArray, themesForSt) {
+const getProjectforPairs= function (studentsPairsArray, themesForSt) {
   const projectForPairs=[];
   for (let i=0; i< studentsPairsArray.length; i++) {
     projectForPairs[i]=[studentsPairsArray[i][0] + " " + studentsPairsArray[i][1], themesForSt[i]];
@@ -41,7 +41,7 @@ return projectForPairs;
 //console.log (getProjectforPairs(Pairs, themes));
 
 // 3.Зіставте оцінки(marks) зі студентом(students): [["Саша", 4], [...], [...]]
-let getMarksForStudent= function (ArrayOfStudents, marks) {
+const getMarksForStudent= function (ArrayOfStudents, marks) {
 const ArrayOfStudentsWithMarks=[];
 for (let i=0; i< ArrayOfStudents.length; i++) {
    ArrayOfStudentsWithMarks[i]=[ArrayOfStudents[i], marks[i]];
@@ -53,7 +53,7 @@ return ArrayOfStudentsWithMarks;
 //4. Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт (тут функція буде не чистою, але не повинна мутувати массив): [["Олександр Олена", "Теорія автоматів", 5], [...], [...]]
 const studentsWithProjects= [...getProjectforPairs(Pairs, themes)];
  
-let randomMarksForProject= function(arrayOfStudents) {
+const randomMarksForProject= function(arrayOfStudents) {
   const arrayWithRandomMarks=[];
   function randomInt(min,max){
     return Math.floor(Math.random() * (max - min) + min);
