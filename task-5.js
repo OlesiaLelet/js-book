@@ -26,13 +26,14 @@ let getModa = function(...numbers) {
   const counter={};
   numbersArray.forEach((item, index) => { 
     if (!item.isInteger) 
-    { numbersArray.splice[index, 1] }});
-  
-    numbers.forEach( (item) => {
-      if (!item.isInteger) continue;
+    { numbersArray.splice[index, 1] };
+  });
+     const getAmount = numbersArray.forEach( (item) => {
+      // if (!item.isInteger) continue;
       if (counter[item]) {
         counter[item]++
-      } else {
+      } else 
+      {
         counter[item]=1;
       }
     });
@@ -49,7 +50,7 @@ let getModa = function(...numbers) {
 
 return moda;
 }
- console.log(getModa(6, 2, 3.25, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+//  console.log(getModa(6, 2, 3.25, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 //3!.Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всх переданих в неї аргументв. НЕ ЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
  let getAverage = function (...numbers ) {
@@ -118,53 +119,29 @@ const getDividedByFive = function(...numbers) {
 //2) замінить погані слова на зрочки (*). При виршенні цього завдання необхідно розбити масив на слова за 
 //допомогою функцї .split(" "), після чого масив необхдно буде склеїти .join(" ") Погані слова: shit та fuck.
 //Передбачте можливсть розширювати cписок цих слів у майбутньому.
-const  replaceBadWords = function (string) {
-  const arrayOfString= string.split(" ");
-  const arrOfBadWords= ["shit", "fuck"];
-   arrOfBadWords.forEach ((item) => {
-    if (arrayOfString.includes(item)) {
-    let indBadWord = arrayOfString.indexOf(item);
-        arrayOfString[indBadWord]="****" + arrayOfString[indBadWord].slice(4);
- }    
-      
-  })
-//   arrOfBadWords.forEach((item, index) => {
-//     arrayOfString.forEach
-//       if ( arrayOfString. includes(item)) {
-//         arrayOfString.index
-//         arrayOfString.splice(index, 1, "****");
-//       }
-// })
-  const withoutBadW= arrayOfString.join(" ");
-  return withoutBadW;
-}
-console.log (replaceBadWords("Why am I doing all the fucking work?"));
+const  replaceBadWords = function (string, arrOfBadWords= ["shit", "fuck"]) {
+    const withoutBadW= arrOfBadWords.forEach ((word) => {
+     const reg = new RegExp(word, "gi")
+     string =  string.replaceAll(word, "*".repeat(word.length));
+ })
+   return string;
+ }
+ //console.log (replaceBadWords("Why am I doing all the fucking work?"));
 
 // 9. Створіть функцію divideByThree(word), яка розбиває кожне слово на умовні склади по 3 букви. 
 //Якщо букв менше трьох – не розбиває. Пробіли завжди видаляються. Рядок приводится до нижнього регістру.
 // Приклад: divideByThree("Commander) -> ["com", "man", "der"]
 // Приклад: divideByThree("live") -> ["liv", "e"]
 let  divideByThree = function (word) {
-  const arrOfword= word.toLowerCase().split(""); // [ 'commander' ]
-  const arrByThree = [];
+  const arrOfword= word.toLowerCase().split("");
   const ammountOfThree=Math.ceil(arrOfword.length/3);
-  arrByThree.length=ammountOfThree;
-  arrByThree.fill("", 0, ammountOfThree )
-  let byThree = arrOfword.map ((item, index) => {
-    return item, item+1, item +2;
-  } )
-  // const grouped = arrOfword.reduce ((sum,  current, index) =>{
-  //   if (index%3===0) {
-  //   sum[sum.length] = [current];
-  // } else {
-  //   sum[sum.length-1] = [...[res.length-1], current]
-  //  }
-  // return sum; 
-  //  })
-    //arrByThree[0]=  arrByThree[0] + item ;
-      // if (arrByThree[0].length>3) {
-      //     arrByThree[0+1];
-      // }  });
-  return by byThree ;
+  const arrByThree= Array(ammountOfThree).fill("")
+  let i=0;
+  let byThree = arrByThree.map ((item) => {
+  const letters= arrOfword[i]  + (arrOfword[i+1]||"") + (arrOfword[i+2]||"");
+    i+=3;
+    return letters;
+  })
+  return byThree; 
   }
-  console.log(divideByThree("Commanderede"));
+ console.log(divideByThree("Commander"));
