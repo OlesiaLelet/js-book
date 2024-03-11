@@ -163,26 +163,26 @@ function countLetter (letter, word) {
     } 
     console.log (deleteLetters ("Бісквіт був дуже ніжним"));
 
-
+//aбо
 
 
 function deleteLetters(string = "Бісквіт був дуже ніжним") {
-let charCount = {};
- let newString = "";
+    const counter={};
+    let resS = "";
+   const  str= string.toLowerCase().replaceAll(" ", "");
+    for (let i=0; i<str.length; i++) {
+        if (counter[str[i]]) {
+            counter[str[i]]++;
+        } else {
+            counter[str[i]]=1;
+        }
+    }
+    for (let i=0; i<str.length; i++)  {
+        if (counter[str[i]]<=1) {
+            resS+=str[i];
+        }
+    }
 
-//     // Рахуємо кількість кожного символу у рядку
-//     for (let char of string) {
-//         char = char.toLowerCase(); // Нормалізуємо до нижнього регістру
-//         charCount[char] = (charCount[char] || 0) + 1;
-//     }
-
-//     // Створюємо новий рядок, пропускаючи символи, які зустрічаються тільки один раз
-//     for (let char of string) {
-//         if (charCount[char.toLowerCase()] > 1) {
-//             newString += char;
-//             charCount[char.toLowerCase()] = 0; // Позначаємо, що символ був використаний
-//         }
-//     }
-
-//     return newString;
-// }
+        return resS;
+    }
+    console.log (deleteLetters());
