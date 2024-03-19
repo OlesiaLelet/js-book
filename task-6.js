@@ -30,7 +30,8 @@ const students = [{
 //предметів для конкретного студента. Звернть увагу – назву предмету необхідно повертати з великої літери, а _ –замінити на пробіл 
 
 const getSubjects = function (student) {
-    const subjectsForOne= Object.keys(student);
+    const subjectsS= student.subjects;
+    const subjectsForOne= Object.keys(subjectsS);
     const correctW= [];
     subjectsForOne.forEach ((subject) => { 
         subject=subject.replaceAll("_", " ");
@@ -41,12 +42,13 @@ const getSubjects = function (student) {
 
     return correctW;
     }
-    //console.log(getSubjects(students[0].subjects));
+    //console.log(getSubjects(students[0]));
 
 // !2. Створіть функцію getAverageMark(students[0]) --> 3.79 – яка поверне середню оцінку по всім предметам 
 // для переданого студента НЕ МАСИВА СТУДЕНТІВ. Оцінку округліть до 2ого знаку. Можна використовувати функцї,
 // написані у попередніх домашніх завданнях.
  const getAverageMark = function (student) {
+  //const subjectsS= student.subjects;
   const arrMarks = Object.values(student);
   const allMarks = arrMarks[0].concat(arrMarks[1], arrMarks[2]);
   const summ = allMarks.reduce ((accum, current) => { return accum + current })
@@ -84,19 +86,22 @@ return sorted;
 // !5. Створіть функцію getBestStudent(students) --> "Anton" – яка повертає кращого студента з списку по 
 //показнику середньої оцінки.
  const getBestStudent = function (arr) {
-const student= arr.map((item) => item.name );
 const averMarks = arr.map ((item) => {
     return getAverageMark(item.subjects) }); 
-const copy = arr.slice(0);
+const copy = JSON.parse(JSON.stringify(arr));
 
 for (let i = 0; i < copy.length; i++) {
-      copy[i].averageM = averMarks[i];    };
+      copy[i].averageM = averMarks[i];   
+     };
 
 const max = Math.max(...averMarks);
-const returnValue = arr.find ((item) => item.averageM === max);
-if (returnValue) {
+const returnValue = copy.find ((item) => item.averageM === max);
+ if (returnValue) {
     return returnValue.name;
-}
+ }
+ else {
+     return string= "Щось пішло не так, студента не знайдено";
+ }
  }
  console.log(getBestStudent(students));
 
@@ -116,4 +121,4 @@ for (let i=0; i<str.length; i++) {
 return obj;
 }
 //console.log(calculateWordLetters("тест"));
-
+//console.log (students);
