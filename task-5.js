@@ -5,7 +5,7 @@
 // Приклад: getRandomArray(15, 1, 100) –> [6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2,
 // 56, 3, 2]
 
-let getRandomArray= function (length, min, max) {
+const getRandomArray= function (length, min, max) {
   const arrayOfR= new Array(length);
   
   const randomNumbers= function (min, max) {
@@ -16,12 +16,12 @@ let getRandomArray= function (length, min, max) {
   return arrayOfRandom;
   
   }
- // console.log(getRandomArray(5, 1, 5));
+  //console.log(getRandomArray(5, 1, 5));
 
 // !2.Створіть функцію getModa(...numbers) – яка вираховує моду всіх переданих
 // в неї аргументв. НЕ ЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
 // Приклад: getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2
-let getModa = function(...numbers) {
+const getModa = function(...numbers) {
   const numbersArray=[...numbers];
   const counter={};
   numbersArray.forEach((item, index) => { 
@@ -53,7 +53,7 @@ return moda;
 //  console.log(getModa(6, 2, 3.25, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 //3!.Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всх переданих в неї аргументв. НЕ ЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
- let getAverage = function (...numbers ) {
+ const getAverage = function (...numbers ) {
   arrayOfNum=[...numbers];
   const summ= arrayOfNum.reduce( (accumulator, current) => {
          return accumulator + current;
@@ -64,7 +64,7 @@ return moda;
  //console.log (getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 //!4. Створіть функцію getMedian(...numbers) – яка рахує медану всіх переданих в неї аргументв. НЕ ЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ.
-let getMedian= function (...numbers) {
+const getMedian= function (...numbers) {
   let arrayOfNum=[...numbers];
   let  mediana;
   let indexOfM;
@@ -132,7 +132,7 @@ const  replaceBadWords = function (string, arrOfBadWords= ["shit", "fuck"]) {
 //Якщо букв менше трьох – не розбиває. Пробіли завжди видаляються. Рядок приводится до нижнього регістру.
 // Приклад: divideByThree("Commander) -> ["com", "man", "der"]
 // Приклад: divideByThree("live") -> ["liv", "e"]
-let  divideByThree = function (word) {
+const  divideByThree = function (word) {
   const arrOfword= word.toLowerCase().split("");
   const ammountOfThree=Math.ceil(arrOfword.length/3);
   const arrByThree= Array(ammountOfThree).fill("")
