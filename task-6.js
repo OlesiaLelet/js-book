@@ -46,16 +46,16 @@ const getSubjects = function (student) {
 
 // !2. Створіть функцію getAverageMark(students[0]) --> 3.79 – яка поверне середню оцінку по всім предметам 
 // для переданого студента НЕ МАСИВА СТУДЕНТІВ. Оцінку округліть до 2ого знаку. Можна використовувати функцї,
-// написані у попередніх домашніх завданнях.
+// написані у попередніх домашніх завданнях
  let getAverageMark = function (student) {
-   const subjectsS= student.subjects;
-   const arrMarks = Object.values(student.subjects);
-    const allMarks = arrMarks[0].concat(arrMarks[1], arrMarks[2]);
-  const summ = allMarks.reduce ((accum, current) => { return accum + current })
-  const averageMark = Math.round ((summ/allMarks.length*100))/100;
-   return averageMark;
+    let(, , subjects) = student;
+//    const arrMarks = Object.values(Subjects);
+//    const allMarks = arrMarks[0].concat(arrMarks[1], arrMarks[2]);
+//   const summ = allMarks.reduce ((accum, current) => { return accum + current })
+//   const averageMark = Math.round ((summ/allMarks.length*100))/100;
+   return subjects;
  }
-//console.log(getAverageMark(students[2]));
+console.log(getAverageMark(students[0]));
 
 
 //!3. Створити функцію getStudentInfo(students[0]) --> { "course": 3, "name": "Tanya", "averageMark": 3.79} – 
@@ -66,12 +66,14 @@ const getStudentInfo = function (student) {
 let {course, name, subjects}= student;
 student.averageMark=getAverageMark((subjects));
 //const info = `"key": ${course}, "name": ${name}, "averageMark": ${getAverageMark((subjects))} `;
- const obj = Object.entries(student).forEach((items) => {
-     const [key, value ,] = items;
- })
-return ;
+ const obj = {
+    key: course,
+    name: name,
+    averageMark: getAverageMark((subjects))
 }
-console.log(getStudentInfo(students[1]));
+return obj ;
+}
+//console.log(getStudentInfo(students[1]));
 
 
 //!4.Створіть функцію getStudents Names(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена 
