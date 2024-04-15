@@ -48,14 +48,14 @@ const getSubjects = function (student) {
 // для переданого студента НЕ МАСИВА СТУДЕНТІВ. Оцінку округліть до 2ого знаку. Можна використовувати функцї,
 // написані у попередніх домашніх завданнях
  let getAverageMark = function (student) {
-    let(, , subjects) = student;
-//    const arrMarks = Object.values(Subjects);
-//    const allMarks = arrMarks[0].concat(arrMarks[1], arrMarks[2]);
-//   const summ = allMarks.reduce ((accum, current) => { return accum + current })
-//   const averageMark = Math.round ((summ/allMarks.length*100))/100;
-   return subjects;
+    let {course, name, subjects}= student;
+    const arrMarks = Object.values(subjects);
+   const allMarks = arrMarks[0].concat(arrMarks[1], arrMarks[2]);
+   const summ = allMarks.reduce ((accum, current) => { return accum + current })
+   const averageMark = Math.round ((summ/allMarks.length*100))/100;
+   return averageMark;
  }
-console.log(getAverageMark(students[0]));
+//console.log(getAverageMark(students[0]));
 
 
 //!3. Створити функцію getStudentInfo(students[0]) --> { "course": 3, "name": "Tanya", "averageMark": 3.79} – 
@@ -64,16 +64,14 @@ console.log(getAverageMark(students[0]));
 
 const getStudentInfo = function (student) {
 let {course, name, subjects}= student;
-student.averageMark=getAverageMark((subjects));
-//const info = `"key": ${course}, "name": ${name}, "averageMark": ${getAverageMark((subjects))} `;
  const obj = {
-    key: course,
-    name: name,
-    averageMark: getAverageMark((subjects))
+    course,
+    name,
+    averageMark: getAverageMark((student))
 }
-return obj ;
+return obj;
 }
-//console.log(getStudentInfo(students[1]));
+console.log(getStudentInfo(students[1]));
 
 
 //!4.Створіть функцію getStudents Names(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена 
