@@ -18,10 +18,7 @@ set setMarks (marksOfStudent) {
             this.arrOfMarks = [];
         }
         if (Array.isArray(marksOfStudent)) {
-            for ( let i=0; i< marksOfStudent.length; i ++) {
-                this.arrOfMarks[this.arrOfMarks.length] = marksOfStudent[i];
-            }
-        
+            this.arrOfMarks.push (...marksOfStudent);
             return this.arrOfMarks;
         } else {
             this.arrOfMarks.push(marksOfStudent);
@@ -77,11 +74,11 @@ const student1 = new Student ("Вищої Школи Психотерапї м.�
 //console.log(student1.getInfo());
 // // 4. Створіть сеттер оцінок marks = 5, який дозволяє поставити оцінку студенту.
 // student1.setNewMark = 5;
-student1.setMarks = [5, 4, 4, 5];
-student1.setMarks = 4;
-console.log(student1.getArrOfMarks);
+// student1.setMarks = [3, 4, 3, 2];
+// student1.setMarks = 2;
+// console.log(student1.getArrOfMarks);
 // //   5. Створіть метод отримання середнього балу getAverageMark() -> 4.6
-// console.log(student1.getAverageMark());
+//  console.log(student1.getAverageMark());
 
 // // 6. Створть метод dismiss, який "виключить" студента. Після виклику цього методу – ставити студенту оцінки та 
 // // отримувати їх більше не можна. (Ніяких помилок не повинно бути, просто повертається завжди null замість масиву оцінок)
@@ -114,13 +111,19 @@ class BudgetStudent extends Student {
     }
     getScholarship () {
         if (!this.dismiss && this.averageMark >= 4 ) {
+                this.getAverageMark();
                 this.scholarShip = 1400;
                 console.log ("Ви отримали 1400 грн стипендії");
             }
         };
 }
-// const student2 = new BudgetStudent ("Вищої Школи Психотерапї м.Одеса", 2, "Остап Родоманський Бендер");
-// console.log(student2.getInfo());
-// student2.setMarks = [4, 4, 5, 4];
-// console.log(student2.getAverageMark());
-// console.log(student2.getScholarship());
+const student2 = new BudgetStudent ("Вищої Школи Психотерапї м.Одеса", 2, "Остап Родоманський Бендер");
+console.log(student2.getInfo());
+student2.setMarks = [4, 4, 5];
+  console.log(student2.getAverageMark())
+
+console.log(student2.getScholarship());
+student2.setMarks = [2, 2, 2];
+
+//console.log(student2.getAverageMark());
+ //console.log(student2.getScholarship());
