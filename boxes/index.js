@@ -25,13 +25,14 @@ const generateBlocks = function (amount) {
 
 
     const getRandomC = (array) => { 
-        for (let i=0; i< array.length; i++) { 
+        box.style.transition = "ease";
+        for (let i=0; i< array.length; i++) {
+            //array[i].style.transition = "ease";
             array[i].style.backgroundColor = generateRandomColor();
         }
         
     } 
         getRandomC(arr);
-
     root.style.display = "grid";
     root.style.setProperty("grid-template-columns", `repeat(${lengthOfBox}, 50px)`);
     root.style.setProperty("grid-gap", "2px" )

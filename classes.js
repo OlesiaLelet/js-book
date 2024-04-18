@@ -110,8 +110,8 @@ class BudgetStudent extends Student {
 
     }
     getScholarship () {
+        this.getAverageMark();
         if (!this.dismiss && this.averageMark >= 4 ) {
-                this.getAverageMark();
                 this.scholarShip = 1400;
                 console.log ("Ви отримали 1400 грн стипендії");
             }
