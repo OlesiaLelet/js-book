@@ -1,7 +1,7 @@
 const generateBlocks = function (amount) {
     const lengthOfBox= Math.sqrt(amount);
     const root = document.getElementById("root");
-    let notExpendend = true;
+   // let notExpendend = true;
     let box=0;
     const arr = [];
 
@@ -37,14 +37,15 @@ const generateBlocks = function (amount) {
     root.style.setProperty("grid-template-columns", `repeat(${lengthOfBox}, 50px)`);
     root.style.setProperty("grid-gap", "2px" )
 
-    const generateBlocksInterval = function (interval) {
-        const changeColor = setInterval (() => {getRandomC(arr);}, 1000)
+    const generateBlocksInterval = function () {
+        setInterval (() => {getRandomC(arr);}, 1000)
    }
-    generateBlocksInterval(1000);
+    generateBlocksInterval();
 
     arr.forEach ((item) => {
-        item.onclick  = () => {
-            if (notExpendend) {
+        let notExpendend = true;
+           return  item.onclick  = () => {
+             if (notExpendend) {
                 notExpendend = false;
                 item.style.setProperty ("height", "80px");
             } else  {
