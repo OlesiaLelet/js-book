@@ -1,0 +1,50 @@
+html {
+    font-size: 10px;
+}
+body {
+    margin: 0px;
+    font-family: sans-serif;
+}
+#root {
+    height: 100vh;
+    width: 100%;
+   /* background-image: url(./images/background.jpg); */
+   background: url(./images/background.jpg) no-repeat bottom;
+    background-size: cover;
+
+}
+ .square {
+    border: 0.4rem solid black;
+    border-radius: .5rem;
+    transition: all .07s ease;
+    margin: 1rem;
+    padding: 1rem 0.5rem;
+    background: rgba(0, 0, 0, 0.4);
+    font-size: 2rem;
+    color: white;
+    text-shadow: 0 0 0.5rem black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+} 
+.square:active {
+    border: 0.4rem solid orange;
+    box-shadow: 2px 2px 15px #ffc600;
+}
+.key {
+    font-size: 4rem;
+    align-self: center;
+}
+.sound {
+    align-self: center;
+    color: #ffc600;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+}
+
+/* .square-play {
+    border: 0.4rem solid orange;
+    box-shadow: 2px 2px 15px #ffc600;
+} */
+
