@@ -27,10 +27,10 @@ body {
     justify-content: center;
     flex-direction: column;
 } 
-.square:active {
+/* .square:active {
     border: 0.4rem solid orange;
     box-shadow: 2px 2px 15px #ffc600;
-}
+} */
 .key {
     font-size: 4rem;
     align-self: center;

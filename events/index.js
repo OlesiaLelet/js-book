@@ -37,9 +37,11 @@ const generateBoxes = function (amount) {
     arr.push(newBox);
     newBox.classList.add("square");
     root.appendChild(newBox);
+    newBox.id = `S${i}`;
      newBox.style.width = "100%";
      newBox.style.MaxWidth = "100px";
      newBox.style.height = "60px";
+
    
 
    }
@@ -99,8 +101,16 @@ const generateBoxes = function (amount) {
     })
 
     for (let i=0; i < arr.length ; i++) {
-     arr[i].onclick = () => {
+     arr[i].onclick = (item) => {
       arrOFMusic[i].play();
+      let s = getElementById(`S${i}`);
+      s.style.setProperty("border", "0.4rem solid orange");
+      s.style.setProperty("box-shadow", "2px 2px 15px #ffc600");
+    //   setTimeout(() => {
+    //     let s = getElementById(`S${i}`);
+    //     s.style.setProperty("border", "0.4rem solid orange");
+    //     s.style.setProperty("box-shadow", "2px 2px 15px #ffc600");
+    //   }, 3000);
    
      }
     };
