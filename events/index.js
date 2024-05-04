@@ -19,19 +19,30 @@ const generateBoxes = function (amount) {
    const musicK= new Audio ('./sounds/Trumpet.mp3');
    const musicL= new Audio ('./sounds/Xylophone.mp3');
   const arrOFMusic = [ musicA, musicS, musicD, musicF, musicG, musicH, musicJ, musicK, musicL];
-  //  const obj = {
-  //   "A": "BellTree";
-  //   "S": "CatMeowing";
-  //   "D": "Gong";
-  //   "F": "Guitar";
-  //   "G": "Harp";
-  //   "H": "HitMetal";
-  //   "J": "OrganCircus";
-  //   "K": "Trumpet";
-  //   "L": "Xylophone";
-  // }
+//     const obj = {
+//     "A": "BellTree",
+//     "S": "CatMeowing",
+//     "D": "Gong",
+//     "F": "Guitar",
+//     "G": "Harp",
+//     "H": "HitMetal",
+//     "J": "OrganCircus",
+//     "K": "Trumpet",
+//     "L": "Xylophone"
+//   }
    const ArrOfNames = ["BellTree", "CatMeow", "Gong", "Guitar", "Harp", "HitMetal", "Organ", "Trumpet", "Xylophone"];
    const arrOfKey = ["A", "S", "D", "F", "G", "H", "J", "K", "L" ];
+       const obj = {
+        "A": musicA,
+        "S": musicS,
+        "D": musicD,
+        "F": musicF,
+        "G": musicG,
+        "H": musicH,
+        "J": musicJ,
+        "K": musicK,
+        "L": musicL,
+  }
    for (let i=0; i < amount ; i++) {
     newBox = document.createElement("div");
     arr.push(newBox);
@@ -72,47 +83,63 @@ const generateBoxes = function (amount) {
      switch (event.key) {
       case "a" :
         musicA.play();
+        const a = document.getElementById(`S0`);
+        a.click();
         break;
       case "s" :
           musicS.play();
+          const s = document.getElementById(`S1`);
+          s.click();
           break;
       case "d" :
           musicD.play();
+          const d = document.getElementById(`S2`);
+          d.click();
           break;
       case "f" :
           musicF.play();
+          const f = document.getElementById(`S3`);
+          f.click();
           break;
       case "g" :
           musicG.play();
+          const g = document.getElementById(`S4`);
+          g.click();
           break;
       case "h" :
           musicH.play();
+          const h = document.getElementById(`S5`);
+          h.click();
           break;
       case "j" :
           musicJ.play();
+          const j = document.getElementById(`S6`);
+          j.click();
           break;
       case "k" :
          musicK.play();
+         const k = document.getElementById(`S7`);
+         k.click();
           break;
       case "l" :
           musicA.play();
+          const l = document.getElementById(`S8`);
+          l.click();
           break;
      }
     })
 
     for (let i=0; i < arr.length ; i++) {
-     arr[i].onclick = (item) => {
+     arr[i].onclick = () => {
       arrOFMusic[i].play();
-      let s = getElementById(`S${i}`);
-      s.style.setProperty("border", "0.4rem solid orange");
-      s.style.setProperty("box-shadow", "2px 2px 15px #ffc600");
-    //   setTimeout(() => {
-    //     let s = getElementById(`S${i}`);
-    //     s.style.setProperty("border", "0.4rem solid orange");
-    //     s.style.setProperty("box-shadow", "2px 2px 15px #ffc600");
-    //   }, 3000);
-   
-     }
+      for (let h=0; h < arr.length ; h++) {
+        let s = document.getElementById(`S${h}`);
+        s.classList.remove("orange");
+      }
+      let s = document.getElementById(`S${i}`);
+      s.classList.add("orange");
+   }
+
     };
 
 
