@@ -1,5 +1,5 @@
 
-const generateBoxes = function (amount) {
+const generateBoxes = function () {
    const root = document.getElementById("root");
    // root.style.setProperty("background-image", "url(./images/background.jpg)");
    // root.style.setProperty("background-size", "cover");
@@ -43,7 +43,7 @@ const generateBoxes = function (amount) {
         "K": musicK,
         "L": musicL,
   }
-   for (let i=0; i < amount ; i++) {
+   for (let i=0; i < arrOFMusic.length ; i++) {
     newBox = document.createElement("div");
     arr.push(newBox);
     newBox.classList.add("square");
@@ -147,4 +147,4 @@ const generateBoxes = function (amount) {
 
    
 }
-generateBoxes(9);
+generateBoxes();
